@@ -1,10 +1,18 @@
 Ext.define('TaskQueue.view.TaskElement', {
-    extend: 'Ext.Panel',
+    extend: 'Ext.dataview.component.DataItem',
+    requires: ['Ext.Container'],
+    xtype: 'taskelement',
+
     config: {
-        text: null,
-        cls: 'taskqueue-taskelement'
+        taskDiv: true,
+        cls: 'task-element',
+        dataMap: {
+            getTaskDiv: {
+                setHtml: 'name'
+            }
+        }
     },
-    constructor: function(config) {
-        this.initConfig(config);
+    applyTaskDiv: function(config) {
+        return Ext.factory(config, Ext.Container, this.getTaskDiv());
     }
 });

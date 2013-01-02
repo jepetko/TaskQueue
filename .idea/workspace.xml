@@ -58,19 +58,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskElement.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TaskElement.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/view/TaskElement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="146" selection-end="220" vertical-scroll-proportion="0.0">
+            <state line="17" column="3" selection-start="440" selection-end="440" vertical-scroll-proportion="0.45132744">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RotatingTasks.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RotatingTasks.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/RotatingTasks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="6" selection-start="353" selection-end="353" vertical-scroll-proportion="0.2793296">
+            <state line="13" column="35" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,13 +107,13 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/store/Tasks.js" />
-        <option value="$PROJECT_DIR$/app/view/TaskElement.js" />
         <option value="$PROJECT_DIR$/app/controller/RoundCarousels.js" />
         <option value="$PROJECT_DIR$/app/view/RoundCarousel.js" />
         <option value="$PROJECT_DIR$/app/model/Task.js" />
         <option value="$PROJECT_DIR$/app/store/FakeTasks.js" />
         <option value="$PROJECT_DIR$/app/view/Main.js" />
         <option value="$PROJECT_DIR$/app/view/RotatingTasks.js" />
+        <option value="$PROJECT_DIR$/app/view/TaskElement.js" />
       </list>
     </option>
   </component>
@@ -468,13 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/TaskElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="146" selection-end="220" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Task.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0">
@@ -505,7 +498,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/RotatingTasks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="353" selection-end="353" vertical-scroll-proportion="0.2793296">
+        <state line="13" column="35" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/TaskElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="3" selection-start="440" selection-end="440" vertical-scroll-proportion="0.45132744">
           <folding />
         </state>
       </provider>

@@ -12,17 +12,20 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
 
     initialize: function() {
         this.callParent(arguments);
-        this.getStore().add( { desc : 'Hallo' } );
-
         this.registerListeners();
+        this.getStore().add( { desc : 'Hallo' } );
     },
 
     registerListeners: function() {
         var me = this;
         this.addListener('painted', this.onPainted, this);
+        this.addListener('updatedata', this.onUpdateData, this);
     },
 
     onPainted: function() {
+        console.log(this);
+    },
+    onUpdateData: function() {
         console.log(this);
     }
 });
