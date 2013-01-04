@@ -6,6 +6,7 @@ Ext.define('TaskQueue.store.FakeTasks', {
     ],
     config: {
         model: 'TaskQueue.model.Task',
+        pageSize: 10,
         proxy:
         {
             type: 'localstorage',
@@ -17,19 +18,21 @@ Ext.define('TaskQueue.store.FakeTasks', {
 
     initConfig: function() {
         this.callParent(arguments);
-        this.generate(50);
     },
 
     generate: function() {
         var size = arguments.length > 0 ? arguments[0] : 10;
-        while( size > 0) {
+        while( size > 0 ) {
             var pos = Math.floor(Math.random() * this.DATA.length);
             var el = this.DATA[pos];
-            this.add( {desc: el} );
+            this.add( {index : this.seq, desc: el, left: 0, top: 0} );
             size--;
+            this.seq++;
         }
         this.sync();
     },
+
+    seq: 0,
 
     DATA : [ "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "Donec a nibh nisi, eu cursus tellus.",

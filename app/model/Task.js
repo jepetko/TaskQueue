@@ -4,9 +4,11 @@ Ext.define('TaskQueue.model.Task', {
     config: {
         identifier: 'uuid',
         fields: [
-            'desc'
+            { name : 'index', type : 'int' },
+            { name : 'desc', type : 'string' },
+            { name : 'left', type : 'int' },
+            { name : 'top', type :'int' }
         ],
-
         validations: [
             { type: 'presence',  field: 'desc' },
             { type: 'length',    field: 'desc', min: 5, max: 100 }

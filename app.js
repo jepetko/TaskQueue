@@ -13,6 +13,7 @@ Ext.application({
     ],
 
     views: ['Main'],
+    controllers: ['TaskQueue.controller.Tasks'],
 
     icon: {
         '57': 'resources/icons/Icon.png',

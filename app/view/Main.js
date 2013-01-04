@@ -10,11 +10,16 @@ Ext.define('TaskQueue.view.Main', {
         'Ext.Panel',
         'TaskQueue.view.RotatingTasks'
     ],
+
     config: {
         layout: {
             type: 'vbox',
             align: 'stretch'
         },
+        /*floating: true,
+        centered: true,
+        width: '100%',
+        height: '100%',*/
         items: [
             {
                 xtype: 'rotatingtasks',
