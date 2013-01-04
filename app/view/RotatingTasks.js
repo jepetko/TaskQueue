@@ -2,7 +2,8 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
     extend: 'Ext.dataview.DataView',
     requires: [
         'TaskQueue.store.FakeTasks',
-        'TaskQueue.view.TaskElement'
+        'TaskQueue.view.TaskElement',
+        'TaskQueue.view.layout.Rotating'
     ],
     xtype: 'rotatingtasks',
     config: {
@@ -10,7 +11,10 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
         store: Ext.create('TaskQueue.store.FakeTasks'),
         //itemTpl: '<div class="taskqueue-rotating-element">{desc}</div>',
         useComponents: true,
-        defaultType: 'taskelement'
+        defaultType: 'taskelement',
+        layout: {
+            type: 'rotating'
+        }
     },
 
     initialize: function() {
