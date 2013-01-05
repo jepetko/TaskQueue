@@ -88,7 +88,7 @@
       <file leaf-file-name="Rotating.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="3907" selection-end="3907" vertical-scroll-proportion="0.5071283">
+            <state line="105" column="36" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.20162933">
               <folding />
             </state>
           </provider>
@@ -396,7 +396,11 @@
       <created>1357410485198</created>
       <updated>1357410485198</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="rotating layout done. todo: x-floating not added; !important option not added by animation">
+      <created>1357410492753</created>
+      <updated>1357410492753</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -575,7 +579,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="3907" selection-end="3907" vertical-scroll-proportion="0.5071283">
+        <state line="105" column="36" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.20162933">
           <folding />
         </state>
       </provider>
