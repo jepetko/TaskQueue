@@ -14,7 +14,7 @@ Ext.define('TaskQueue.view.TaskElement', {
         //cls: 'task-element',
         dataMap: {
             getTaskDiv: {
-                setHtml: 'desc',
+                setHtml: 'index',
                 setLeft: 'left',
                 setTop: 'top'
             }
@@ -28,6 +28,9 @@ Ext.define('TaskQueue.view.TaskElement', {
         var totalCount = this.getItems().length;
         var el = Ext.factory(config, Ext.Panel, this.getTaskDiv());
         el.setCls('task-element');
+        var dimensions = this.getEmbeddingContainerDimensions();
+        el.setWidth(dimensions.itemsize + 'px');
+        el.setHeight(dimensions.itemsize + 'px');
         return el;
     },
     updateTaskDiv: function(newDescTaskDiv, oldDescTaskDiv) {
@@ -38,8 +41,15 @@ Ext.define('TaskQueue.view.TaskElement', {
             this.add(newDescTaskDiv);
         }
     },
-    getDataViewEmbeddingContainer: function() {
-        var parent = this.getDataview();
-        return parent.getParent();
+    getEmbeddingContainerDimensions: function() {
+        var dataView = this.getDataview();
+        var parent = dataView.getParent();
+        var w = parent.element.getWidth();
+        var h = parent.element.getHeight();
+        var dim = (w < h) ? w : h;
+        var isize = Math.round(dim/5);
+        return {
+            width: w, height: h, preferred : dim, itemsize : isize
+        }
     }
 });

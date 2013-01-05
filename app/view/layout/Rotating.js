@@ -59,10 +59,9 @@ Ext.define('TaskQueue.view.layout.Rotating', {
 
     _animate: function(pos) {
         var anim = Ext.create(  'Ext.Anim',
-                                {   duration:1500,
-                                    autoClear: false,
+                                {   duration:1000,
+                                    autoClear: true,
                                     easing: 'cubic-bezier(0.680,-0.550,0.265,1.550)',
-                                    //reverse: true,
                                     from: {
                                         top: 0 + 'px',
                                         left: 0 + 'px'
@@ -73,8 +72,6 @@ Ext.define('TaskQueue.view.layout.Rotating', {
                                     }
                                 }
         );
-        console.log(this._container.getInnerItems());
-        console.log(this._container.getItems());
 
         var panel = null;
         var innerItems = this._container.getInnerItems();
@@ -83,28 +80,22 @@ Ext.define('TaskQueue.view.layout.Rotating', {
         else
             panel = this._container.element;
 
-        console.log(panel);
-        console.log(anim);
         anim.run(panel, {
-            after:Ext.Function.bind(this._afterAnimate, this, [this._container.getRecord()])
+            after:Ext.Function.bind(this._afterAnimate, this, [this._container.getRecord(),pos])
         })
     },
 
     _applyLayout: function() {
-        console.log('apply layout');
-
         var record = this._container.getRecord();
         var index = record.getData()["index"];
 
         var totalSegments = 8;
-        var totalSize = this._getTotalSize();
-        var totalWidth = totalSize.width;
-        var totalHeight= totalSize.height;
-        console.info( "totalWidth:" + totalWidth );
-        console.info( "totalHeight:" + totalHeight );
+        var dimensions = this._container.getEmbeddingContainerDimensions();
+        var totalWidth = dimensions.width;
+        var totalHeight= dimensions.height;
 
-        var totalDim = (totalWidth < totalHeight) ? totalWidth : totalHeight;
-        var totalRadius = totalDim/2 - 100;
+        var totalDim = dimensions.preferred;
+        var totalRadius = totalDim/2 - dimensions.itemsize;
         var degreesPerSegment = 360/totalSegments;
         var degrees = index * degreesPerSegment;
 
@@ -114,21 +105,14 @@ Ext.define('TaskQueue.view.layout.Rotating', {
         xCoord += Math.round(totalWidth/2) - 50;
         yCoord = (-1)*yCoord + Math.round(totalHeight/2) - 50;
 
-        console.log( degrees + "° => " + xCoord + "," + yCoord );
         this._animate( { top: yCoord, left: xCoord} );
-        /*record.set('left', xCoord);
-        record.set('top', yCoord);
-        record.dirty = true;*/
+     },
 
-        //<div class="x-container x-unsized x-panel task-element x-floating" id="ext-panel-3" style="left: 601px !important; z-index: 4 !important; top: 50px !important;"><div class="x-inner x-panel-inner" id="ext-element-24"><div class="x-innerhtml " id="ext-element-25">Phasellus eleifend varius nibh, adipiscing porta neque venenatis vitae.</div></div><div class="x-anchor" style="display: none;"></div></div>
-        //<div class="x-container x-unsized x-panel task-element" id="ext-panel-1" style="top: 142px; left: 693px;"><div class="x-inner x-panel-inner" id="ext-element-17"><div class="x-innerhtml " id="ext-element-19">Praesent vitae metus in eros accumsan sodales ut et sem.</div></div><div class="x-anchor" style="display: none;" id="ext-element-18"></div></div>
-    },
-
-    _afterAnimate: function() {
+    _afterAnimate: function(record, pos) {
         console.log('_afterAnimate');
-        /*record.set('left', xCoord);
-         record.set('top', yCoord);
-         record.dirty = true;*/
+        record.set('left', pos.left);
+        record.set('top', pos.top);
+        record.dirty = true;
     },
 
     degreeToRadian: function(degree) {

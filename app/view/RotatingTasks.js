@@ -20,11 +20,9 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
     },
 
     registerListeners: function() {
-        var me = this;
         this.addListener('painted', this.onPainted, this);
         this.addListener('resize', this.onResize, this)
     },
-
     onPainted: function() {
         console.log('painted');
     },
