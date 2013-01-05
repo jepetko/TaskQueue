@@ -392,7 +392,11 @@
       <created>1357410470794</created>
       <updated>1357410470794</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rotating layout done. todo: x-floating not added; !important option not added by animation">
+      <created>1357410485198</created>
+      <updated>1357410485198</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
