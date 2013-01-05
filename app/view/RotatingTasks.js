@@ -11,27 +11,24 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
         store: Ext.create('TaskQueue.store.FakeTasks'),
         //itemTpl: '<div class="taskqueue-rotating-element">{desc}</div>',
         useComponents: true,
-        defaultType: 'taskelement',
-        layout: {
-            type: 'rotating'
-        }
+        defaultType: 'taskelement'
     },
 
     initialize: function() {
         this.callParent(arguments);
-        //this.registerListeners();
+        this.registerListeners();
     },
 
     registerListeners: function() {
         var me = this;
         this.addListener('painted', this.onPainted, this);
-        this.addListener('updatedata', this.onUpdateData, this);
+        this.addListener('resize', this.onResize, this)
     },
 
     onPainted: function() {
-        console.log(this);
+        console.log('painted');
     },
-    onUpdateData: function() {
-        console.log(this);
+    onResize: function() {
+        console.log('resize');
     }
 });

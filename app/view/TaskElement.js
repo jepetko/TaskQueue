@@ -18,10 +18,10 @@ Ext.define('TaskQueue.view.TaskElement', {
                 setLeft: 'left',
                 setTop: 'top'
             }
-        }/*,
+        },
         layout: {
-            type: 'fit'
-        }*/
+            type: 'rotating'
+        }
     },
     applyTaskDiv: function(config) {
         var parent = this.getDataview();
@@ -37,5 +37,9 @@ Ext.define('TaskQueue.view.TaskElement', {
         if (newDescTaskDiv) {
             this.add(newDescTaskDiv);
         }
+    },
+    getDataViewEmbeddingContainer: function() {
+        var parent = this.getDataview();
+        return parent.getParent();
     }
 });
