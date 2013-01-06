@@ -421,7 +421,11 @@
       <created>1357435203853</created>
       <updated>1357435203853</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="main container of the data item is animated and used for top / left data  from store">
+      <created>1357435216687</created>
+      <updated>1357435216687</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
