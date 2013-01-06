@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1496e370-8ea0-4bc6-9483-6b5004675e44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Task.js" afterPath="$PROJECT_DIR$/app/model/Task.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/FakeTasks.js" afterPath="$PROJECT_DIR$/app/store/FakeTasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/TaskElement.js" afterPath="$PROJECT_DIR$/app/view/TaskElement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/layout/Rotating.js" afterPath="$PROJECT_DIR$/app/view/layout/Rotating.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/app.css" afterPath="$PROJECT_DIR$/resources/css/app.css" />
     </list>
     <ignored path="TaskQueue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,7 +88,7 @@
       <file leaf-file-name="Rotating.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="35" selection-start="3198" selection-end="3198" vertical-scroll-proportion="0.4988067">
+            <state line="96" column="42" selection-start="3124" selection-end="3124" vertical-scroll-proportion="0.42720765">
               <folding />
             </state>
           </provider>
@@ -422,7 +417,11 @@
       <created>1357427807124</created>
       <updated>1357427807124</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="main container of the data item is animated and used for top / left data  from store">
+      <created>1357435203853</created>
+      <updated>1357435203853</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -483,7 +482,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="better size management of particular items" />
+    <option name="LAST_COMMIT_MESSAGE" value="main container of the data item is animated and used for top / left data  from store" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -500,6 +499,7 @@
     <MESSAGE value="adding custom layout manager" />
     <MESSAGE value="rotating layout done. todo: x-floating not added; !important option not added by animation" />
     <MESSAGE value="better size management of particular items" />
+    <MESSAGE value="main container of the data item is animated and used for top / left data  from store" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -604,7 +604,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="35" selection-start="3198" selection-end="3198" vertical-scroll-proportion="0.4988067">
+        <state line="96" column="42" selection-start="3124" selection-end="3124" vertical-scroll-proportion="0.42720765">
           <folding />
         </state>
       </provider>
