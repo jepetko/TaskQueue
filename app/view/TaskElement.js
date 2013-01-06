@@ -23,7 +23,9 @@ Ext.define('TaskQueue.view.TaskElement', {
             },
             getMainContainer: {
                 setTop: 'top',
-                setLeft: 'left'
+                setLeft: 'left',
+                setWidth: 'width',
+                setHeight: 'height'
             }
         },
         layout: {
@@ -39,18 +41,11 @@ Ext.define('TaskQueue.view.TaskElement', {
         this.addListener('updatedata', this.onUpdateData, this);
     },
     onInitialize: function() {
-        var dimensions = this.getEmbeddingContainerDimensions();
-        this.setWidth(dimensions.itemsize + 'px');
-        this.setHeight(dimensions.itemsize + 'px');
     },
     onUpdateData: function( el, newData, eOpts ) {
         var me = this;
         //bug? when doing synchronously it fails: "Cannot read property 'updateRecord' of undefined"
-        Ext.defer(function() {
-            var rec = me.getRecord();
-            me.setTop(rec['top']);
-            me.setLeft(rec['left']);
-        }, 200);
+        Ext.defer( Ext.Function.bind( this.applyMainContainer, this ), 200);
     },
     applyTaskDiv: function(config) {
         var el = Ext.factory(config, Ext.Panel, this.getTaskDiv());
@@ -80,16 +75,7 @@ Ext.define('TaskQueue.view.TaskElement', {
         var rec = this.getRecord();
         this.setLeft( rec['left'] );
         this.setTop( rec['top'] );
-    },
-    getEmbeddingContainerDimensions: function() {
-        var dataView = this.getDataview();
-        var parent = dataView.getParent();
-        var w = parent.element.getWidth();
-        var h = parent.element.getHeight();
-        var dim = (w < h) ? w : h;
-        var isize = Math.round(dim/5);
-        return {
-            width: w, height: h, preferred : dim, itemsize : isize
-        }
+        this.setWidth( rec['width']);
+        this.setHeight( rec['height']);
     }
 });
