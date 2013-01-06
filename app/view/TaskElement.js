@@ -1,36 +1,59 @@
 Ext.define('TaskQueue.view.TaskElement', {
     extend: 'Ext.dataview.component.DataItem',
-    requires: ['Ext.Container'],
+    requires: ['Ext.Container', 'Ext.field.Checkbox'],
     xtype: 'taskelement',
 
     config: {
-        taskDiv: {
-            /*layout: {
-                type: 'hbox',
-                align: 'stretch'
-            }*/
-            //force the element to be floating
+        cls: 'task-element',
+        mainContainer: {
+            //dummy for main container built by framework
         },
-        //cls: 'task-element',
+        taskDiv: {
+            cls: 'task-element-div'
+        },
+        doneCheckbox: {
+            bottom: '0px'
+        },
         dataMap: {
             getTaskDiv: {
-                setHtml: 'index',
-                setLeft: 'left',
-                setTop: 'top'
+                setHtml: 'index'
+            },
+            getDoneCheckbox: {
+                setValue: 'done'
+            },
+            getMainContainer: {
+                setTop: 'top',
+                setLeft: 'left'
             }
         },
         layout: {
             type: 'rotating'
         }
     },
-    applyTaskDiv: function(config) {
-        var parent = this.getDataview();
-        var totalCount = this.getItems().length;
-        var el = Ext.factory(config, Ext.Panel, this.getTaskDiv());
-        el.setCls('task-element');
+    initialize: function() {
+        this.callParent(arguments);
+        this.registerListeners();
+    },
+    registerListeners: function() {
+        this.addListener('initialize', this.onInitialize, this);
+        this.addListener('updatedata', this.onUpdateData, this);
+    },
+    onInitialize: function() {
         var dimensions = this.getEmbeddingContainerDimensions();
-        el.setWidth(dimensions.itemsize + 'px');
-        el.setHeight(dimensions.itemsize + 'px');
+        this.setWidth(dimensions.itemsize + 'px');
+        this.setHeight(dimensions.itemsize + 'px');
+    },
+    onUpdateData: function( el, newData, eOpts ) {
+        var me = this;
+        //bug? when doing synchronously it fails: "Cannot read property 'updateRecord' of undefined"
+        Ext.defer(function() {
+            var rec = me.getRecord();
+            me.setTop(rec['top']);
+            me.setLeft(rec['left']);
+        }, 200);
+    },
+    applyTaskDiv: function(config) {
+        var el = Ext.factory(config, Ext.Panel, this.getTaskDiv());
         return el;
     },
     updateTaskDiv: function(newDescTaskDiv, oldDescTaskDiv) {
@@ -40,6 +63,23 @@ Ext.define('TaskQueue.view.TaskElement', {
         if (newDescTaskDiv) {
             this.add(newDescTaskDiv);
         }
+    },
+    applyDoneCheckbox: function(config) {
+        var el = Ext.factory(config, Ext.field.Checkbox, this.getDoneCheckbox());
+        return el;
+    },
+    updateDoneCheckbox: function(newCheckbox, oldCheckbox) {
+        if (oldCheckbox) {
+            this.remove(oldCheckbox);
+        }
+        if (newCheckbox) {
+            this.add(newCheckbox);
+        }
+    },
+    applyMainContainer: function(config) {
+        var rec = this.getRecord();
+        this.setLeft( rec['left'] );
+        this.setTop( rec['top'] );
     },
     getEmbeddingContainerDimensions: function() {
         var dataView = this.getDataview();

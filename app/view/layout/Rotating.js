@@ -1,5 +1,8 @@
 Ext.define('TaskQueue.view.layout.Rotating', {
     extend: 'Ext.layout.Default',
+    requires: [
+        'Ext.Anim'
+    ],
 
     alias: 'layout.rotating',
 
@@ -41,30 +44,19 @@ Ext.define('TaskQueue.view.layout.Rotating', {
 
     setContainer: function(container) {
         this.callSuper(arguments);
-        console.info( "setContainer");
-        console.info( container );
         this._container = container;
         container.innerElement.addCls(this.layoutClass);
-        var me = this;
-        setTimeout( function() { me._applyLayout(); }, 1000);
-    },
-
-    _getTotalSize: function() {
-        var embeddingContainer = this._container.getDataViewEmbeddingContainer();
-        return {
-                    width: embeddingContainer.element.getWidth(),
-                    height: embeddingContainer.element.getHeight()
-                };
+        Ext.defer( this._applyLayout, 1000, this);
     },
 
     _animate: function(pos) {
         var anim = Ext.create(  'Ext.Anim',
                                 {   duration:1000,
-                                    autoClear: true,
+                                    autoClear: false,
                                     easing: 'cubic-bezier(0.680,-0.550,0.265,1.550)',
                                     from: {
-                                        top: 0 + 'px',
-                                        left: 0 + 'px'
+                                        top: '0px',
+                                        left: '0px'
                                     },
                                     to: {
                                         top: pos.top + 'px',
@@ -73,13 +65,7 @@ Ext.define('TaskQueue.view.layout.Rotating', {
                                 }
         );
 
-        var panel = null;
-        var innerItems = this._container.getInnerItems();
-        if( innerItems && innerItems.length > 1 )
-            panel = innerItems[1].element;
-        else
-            panel = this._container.element;
-
+        var panel = this._container.element;
         anim.run(panel, {
             after:Ext.Function.bind(this._afterAnimate, this, [this._container.getRecord(),pos])
         })
@@ -109,10 +95,10 @@ Ext.define('TaskQueue.view.layout.Rotating', {
      },
 
     _afterAnimate: function(record, pos) {
-        console.log('_afterAnimate');
         record.set('left', pos.left);
         record.set('top', pos.top);
         record.dirty = true;
+        console.log('_afterAnimate');
     },
 
     degreeToRadian: function(degree) {

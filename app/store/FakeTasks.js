@@ -25,7 +25,7 @@ Ext.define('TaskQueue.store.FakeTasks', {
         while( size > 0 ) {
             var pos = Math.floor(Math.random() * this.DATA.length);
             var el = this.DATA[pos];
-            this.add( {index : this.seq, desc: el, left: 0, top: 0} );
+            this.add( {index : this.seq, desc: el, left: 0, top: 0, done: false} );
             size--;
             this.seq++;
         }

@@ -6,6 +6,7 @@ Ext.define('TaskQueue.model.Task', {
         fields: [
             { name : 'index', type : 'int' },
             { name : 'desc', type : 'string' },
+            { name : 'done', type: 'boolean' },
             { name : 'left', type : 'int' },
             { name : 'top', type :'int' }
         ],
