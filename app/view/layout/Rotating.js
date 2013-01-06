@@ -61,10 +61,10 @@ Ext.define('TaskQueue.view.layout.Rotating', {
 
         var data = record.getData();
         if(!data) return;
-        var index = data["index"];
+        var index = this._container.getDataview().getItemIndex(this._container);
+        if( index == -1 ) return;
 
         var dimensions = this.getEmbeddingContainerDimensions();
-        console.log(dimensions);
         var totalWidth = dimensions.width;
         var totalHeight= dimensions.height;
 
@@ -78,9 +78,6 @@ Ext.define('TaskQueue.view.layout.Rotating', {
 
         xCoord += Math.round(totalWidth/2 - dimensions.itemsize/2);
         yCoord = (-1)*yCoord + Math.round(totalHeight/2 - dimensions.itemsize/2);
-
-        var count = this.getCount();
-        console.log('current count'+count);
 
         this._animate( { top: yCoord, left: xCoord, width: dimensions.itemsize, height: dimensions.itemsize} );
      },

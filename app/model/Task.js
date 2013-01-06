@@ -4,7 +4,6 @@ Ext.define('TaskQueue.model.Task', {
     config: {
         identifier: 'uuid',
         fields: [
-            { name : 'index', type : 'int' },
             { name : 'desc', type : 'string' },
             { name : 'done', type: 'boolean' },
             //position and sine are data-driven

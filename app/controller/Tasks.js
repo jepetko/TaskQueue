@@ -50,15 +50,15 @@ Ext.define('TaskQueue.controller.Tasks', {
 
         var view = this.getRotatingTasksView();
         var store = view.getStore();
-        var indices = [];
+        var ids = [];
         store.each(function (item, index, length) {
-            if( indices.length < 8)
-                indices.push(item.get('index'));
+            if( ids.length < 8)
+                ids.push(item.get('id'));
         });
 
         var topNItems = new Ext.util.Filter({
             filterFn: function(item) {
-                return Ext.Array.contains( indices, item.get('index'));
+                return Ext.Array.contains( ids, item.get('id'));
             }
         });
 

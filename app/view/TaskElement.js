@@ -16,7 +16,7 @@ Ext.define('TaskQueue.view.TaskElement', {
         },
         dataMap: {
             getTaskDiv: {
-                setHtml: 'index'
+                setHtml: 'desc'
             },
             getDoneCheckbox: {
                 setValue: 'done'

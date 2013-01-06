@@ -15,13 +15,7 @@ Ext.define('TaskQueue.store.FakeTasks', {
             enablePagingParams: true
         },
         autoLoad: false,
-        data: [],
-        sorters: [
-            {
-                property: 'index',
-                direction: 'ASC'
-            }
-        ]
+        data: []
     },
 
     initConfig: function() {
@@ -33,14 +27,10 @@ Ext.define('TaskQueue.store.FakeTasks', {
         while( size > 0 ) {
             var pos = Math.floor(Math.random() * TaskQueue.store.FakeTasks.fakeData.length);
             var el = TaskQueue.store.FakeTasks.fakeData[pos];
-            this.add( {index : this.seq, desc: el, left: 0, top: 0, width: 0, height: 0,done: false} );
+            this.add( {desc: el, left: 0, top: 0, width: 0, height: 0,done: false} );
             size--;
-            this.seq++;
         }
-        //this.sync();
-    },
-
-    seq: 0
+    }
 });
 
 TaskQueue.store.FakeTasks.addStatics({
