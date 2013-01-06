@@ -73,7 +73,11 @@ Ext.define('TaskQueue.view.layout.Rotating', {
 
     _applyLayout: function() {
         var record = this._container.getRecord();
-        var index = record.getData()["index"];
+        if(!record) return;
+        
+        var data = record.getData();
+        if(!data) return;
+        var index = data["index"];
 
         var totalSegments = 8;
         var dimensions = this._container.getEmbeddingContainerDimensions();
@@ -98,7 +102,6 @@ Ext.define('TaskQueue.view.layout.Rotating', {
         record.set('left', pos.left);
         record.set('top', pos.top);
         record.dirty = true;
-        console.log('_afterAnimate');
     },
 
     degreeToRadian: function(degree) {

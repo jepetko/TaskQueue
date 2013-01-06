@@ -11,10 +11,6 @@ Ext.define('TaskQueue.controller.Tasks', {
     onPainted: function() {
     },
 
-    onWrite: function(store, operation, eOpts) {
-        console.log('write');
-    },
-
     onBeforeLoad: function(store, operation, eOpts ) {
         console.log('before load');
     },
@@ -30,7 +26,9 @@ Ext.define('TaskQueue.controller.Tasks', {
         var store = rotatingTasks.getStore();
         this.addStoreListeners(store);
 
-        store.generate(8);
+        store.generate(50);
+        this.addRotatingTasksViewSpecFilters();
+        store.sync();
     },
 
     init: function() {
@@ -45,9 +43,26 @@ Ext.define('TaskQueue.controller.Tasks', {
     },
 
     addStoreListeners: function(store) {
-        //store.addListener( 'addrecords', this.onRecordsAdded, this );
-        store.addListener( 'write', this.onWrite, this );
         store.addListener( 'beforeload', this.onBeforeLoad, this );
+    },
+
+    addRotatingTasksViewSpecFilters: function() {
+
+        var view = this.getRotatingTasksView();
+        var store = view.getStore();
+        var indices = [];
+        store.each(function (item, index, length) {
+            if( indices.length < 8)
+                indices.push(item.get('index'));
+        });
+
+        var topNItems = new Ext.util.Filter({
+            filterFn: function(item) {
+                return Ext.Array.contains( indices, item.get('index'));
+            }
+        });
+
+        store.filter(topNItems);
     },
 
     poll: function() {

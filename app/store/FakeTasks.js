@@ -6,14 +6,22 @@ Ext.define('TaskQueue.store.FakeTasks', {
     ],
     config: {
         model: 'TaskQueue.model.Task',
-        pageSize: 10,
+        pageSize: 8,
+        clearOnPageLoad: true,
         proxy:
         {
             type: 'localstorage',
-            id: 'tasks'
+            id: 'tasks',
+            enablePagingParams: true
         },
-        autoLoad: true,
-        data: []
+        autoLoad: false,
+        data: [],
+        sorters: [
+            {
+                property: 'index',
+                direction: 'ASC'
+            }
+        ]
     },
 
     initConfig: function() {
@@ -29,7 +37,7 @@ Ext.define('TaskQueue.store.FakeTasks', {
             size--;
             this.seq++;
         }
-        this.sync();
+        //this.sync();
     },
 
     seq: 0,

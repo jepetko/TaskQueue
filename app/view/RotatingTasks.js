@@ -7,9 +7,7 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
     ],
     xtype: 'rotatingtasks',
     config: {
-        //cls: 'taskqueue-rotating',
         store: Ext.create('TaskQueue.store.FakeTasks'),
-        //itemTpl: '<div class="taskqueue-rotating-element">{desc}</div>',
         useComponents: true,
         defaultType: 'taskelement'
     },
