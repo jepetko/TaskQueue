@@ -13,17 +13,22 @@ Ext.define('TaskQueue.view.Main', {
 
     config: {
         layout: {
-            type: 'vbox',
-            align: 'stretch'
+            type: 'hbox'
         },
-        /*floating: true,
-        centered: true,
-        width: '100%',
-        height: '100%',*/
         items: [
             {
+                xtype: 'panel',
+                flex: 1,
+                items: [
+                    {
+                        xtype: 'label',
+                        html: '100'
+                    }
+                ]
+            },
+            {
                 xtype: 'rotatingtasks',
-                flex: 1
+                flex: 5
             }
         ]
     }

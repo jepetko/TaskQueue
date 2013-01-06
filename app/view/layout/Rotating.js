@@ -97,8 +97,7 @@ Ext.define('TaskQueue.view.layout.Rotating', {
         return degree * Math.PI / 180;
     },
     getEmbeddingContainerDimensions: function() {
-        var dataView = this._container.getDataview();
-        var parent = dataView.getParent();
+        var parent = this._container.getDataview();
         var w = parent.element.getWidth();
         var h = parent.element.getHeight();
         var dim = (w < h) ? w : h;
