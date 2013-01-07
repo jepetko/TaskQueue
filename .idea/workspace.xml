@@ -4,10 +4,6 @@
     <list default="true" id="1496e370-8ea0-4bc6-9483-6b5004675e44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/Tasks.js" afterPath="$PROJECT_DIR$/app/controller/Tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Task.js" afterPath="$PROJECT_DIR$/app/model/Task.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/FakeTasks.js" afterPath="$PROJECT_DIR$/app/store/FakeTasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/TaskElement.js" afterPath="$PROJECT_DIR$/app/view/TaskElement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/layout/Rotating.js" afterPath="$PROJECT_DIR$/app/view/layout/Rotating.js" />
     </list>
     <ignored path="TaskQueue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +26,7 @@
       <file leaf-file-name="TaskElement.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/TaskElement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="18" selection-start="657" selection-end="657" vertical-scroll-proportion="-8.076923">
+            <state line="62" column="81" selection-start="1921" selection-end="1921" vertical-scroll-proportion="-5.1923075">
               <folding />
             </state>
           </provider>
@@ -63,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rotating.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Rotating.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.46089387">
+            <state line="103" column="9" selection-start="3673" selection-end="3673" vertical-scroll-proportion="-5.821429">
               <folding />
             </state>
           </provider>
@@ -75,7 +71,7 @@
       <file leaf-file-name="RotatingTasks.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/RotatingTasks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="263" selection-end="263" vertical-scroll-proportion="-4.6153846">
+            <state line="15" column="15" selection-start="436" selection-end="436" vertical-scroll-proportion="-8.653846">
               <folding />
             </state>
           </provider>
@@ -84,16 +80,16 @@
       <file leaf-file-name="FakeTasks.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/store/FakeTasks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="26" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+            <state line="21" column="35" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tasks.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Tasks.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/Tasks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="36" selection-start="1493" selection-end="1493" vertical-scroll-proportion="-6.964286">
+            <state line="24" column="9" selection-start="877" selection-end="877" vertical-scroll-proportion="0.5865922">
               <folding />
             </state>
           </provider>
@@ -123,10 +119,10 @@
         <option value="$PROJECT_DIR$/app/view/RotatingTasks.js" />
         <option value="$PROJECT_DIR$/app/view/Main.js" />
         <option value="$PROJECT_DIR$/app/view/layout/Rotating.js" />
-        <option value="$PROJECT_DIR$/app/controller/Tasks.js" />
         <option value="$PROJECT_DIR$/app/model/Task.js" />
         <option value="$PROJECT_DIR$/app/view/TaskElement.js" />
         <option value="$PROJECT_DIR$/app/store/FakeTasks.js" />
+        <option value="$PROJECT_DIR$/app/controller/Tasks.js" />
       </list>
     </option>
   </component>
@@ -438,7 +434,11 @@
       <created>1357513610031</created>
       <updated>1357513610031</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="remove 'index' property and let dataitems place depending on their index inside the parent">
+      <created>1357516656981</created>
+      <updated>1357516656981</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -499,7 +499,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding new panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove 'index' property and let dataitems place depending on their index inside the parent" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -520,6 +520,7 @@
     <MESSAGE value="first N records in RotatingTasks. Use filter for that." />
     <MESSAGE value="separation of concerns" />
     <MESSAGE value="adding new panel" />
+    <MESSAGE value="remove 'index' property and let dataitems place depending on their index inside the parent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -575,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/RotatingTasks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="263" selection-end="263" vertical-scroll-proportion="-4.6153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/Main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="34" selection-start="511" selection-end="514" vertical-scroll-proportion="0.0">
@@ -589,16 +583,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/Tasks.js">
+    <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="36" selection-start="1493" selection-end="1493" vertical-scroll-proportion="-6.964286">
+        <state line="103" column="9" selection-start="3673" selection-end="3673" vertical-scroll-proportion="-5.821429">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/TaskElement.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="18" selection-start="657" selection-end="657" vertical-scroll-proportion="-8.076923">
+        <state line="62" column="81" selection-start="1921" selection-end="1921" vertical-scroll-proportion="-5.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/RotatingTasks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="15" selection-start="436" selection-end="436" vertical-scroll-proportion="-8.653846">
           <folding />
         </state>
       </provider>
@@ -612,14 +613,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/store/FakeTasks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="26" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+        <state line="21" column="35" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/layout/Rotating.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/Tasks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.46089387">
+        <state line="24" column="9" selection-start="877" selection-end="877" vertical-scroll-proportion="0.5865922">
           <folding />
         </state>
       </provider>
