@@ -443,7 +443,11 @@
       <created>1357518205047</created>
       <updated>1357518205047</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="remove unnecessary variable">
+      <created>1357519471641</created>
+      <updated>1357519471641</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -504,7 +508,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="event handler for changing records" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary variable" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -527,6 +531,7 @@
     <MESSAGE value="adding new panel" />
     <MESSAGE value="remove 'index' property and let dataitems place depending on their index inside the parent" />
     <MESSAGE value="event handler for changing records" />
+    <MESSAGE value="remove unnecessary variable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
