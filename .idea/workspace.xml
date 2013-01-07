@@ -447,7 +447,11 @@
       <created>1357519471641</created>
       <updated>1357519471641</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="remove unnecessary variable">
+      <created>1357519497584</created>
+      <updated>1357519497584</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">

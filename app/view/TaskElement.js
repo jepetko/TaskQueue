@@ -43,7 +43,6 @@ Ext.define('TaskQueue.view.TaskElement', {
     onInitialize: function() {
     },
     onUpdateData: function( el, newData, eOpts ) {
-        var me = this;
         //bug? when doing synchronously it fails: "Cannot read property 'updateRecord' of undefined"
         Ext.defer( Ext.Function.bind( this.applyMainContainer, this ), 200);
     },

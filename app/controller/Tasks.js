@@ -17,16 +17,18 @@ Ext.define('TaskQueue.controller.Tasks', {
     },
 
     onUpdateRecord: function(el, record, newIndex, oldIndex, modifiedFieldNames, modifiedValues, eOpts) {
-        var rotatingTasks = this.getRotatingTasksView();
-        var store = rotatingTasks.getStore();
-        console.log(modifiedFieldNames);
+        var store = this.getTasksViewStore();
         if( Ext.Array.contains( modifiedFieldNames, 'done' ) ) {
             this.setRotatingTasksViewSpecFilters();
         }
         store.sync();
     },
 
-    onCheckboxChanged: function(el, newValue, oldValue, eOpts) {
+    onCheckboxChecked: function(el, e, eOpts) {
+        var rec = el.getParent().getRecord();
+        rec.set('done', true);
+        rec.dirty = true;
+
     },
 
     //////////////// Methods
@@ -34,9 +36,7 @@ Ext.define('TaskQueue.controller.Tasks', {
     launch: function() {
         console.info('launch');
 
-        var rotatingTasks = this.getRotatingTasksView();
-
-        var store = rotatingTasks.getStore();
+        var store = this.getTasksViewStore();
         this.addStoreListeners(store);
 
         store.generate(50);
@@ -54,6 +54,10 @@ Ext.define('TaskQueue.controller.Tasks', {
             return tasks[0];
         return null;
     },
+    getTasksViewStore: function() {
+        var rotatingTasks = this.getRotatingTasksView();
+        return rotatingTasks.getStore();
+    },
 
     getCheckboxes: function() {
         return Ext.ComponentQuery.query('rotatingtasks checkboxfield');
@@ -67,8 +71,7 @@ Ext.define('TaskQueue.controller.Tasks', {
 
     setRotatingTasksViewSpecFilters: function() {
 
-        var view = this.getRotatingTasksView();
-        var store = view.getStore();
+        var store = this.getTasksViewStore();
         var ids = [];
         store.each(function (item, index, length) {
             if( ids.length < 8 && item.get('done') === false)
@@ -88,7 +91,7 @@ Ext.define('TaskQueue.controller.Tasks', {
         for(var i=0; i<checkboxes.length; i++) {
             if( checkboxes[i].hasListener('change'))
                 continue;
-            checkboxes[i].on( 'change', this.onCheckboxChanged, this);
+            checkboxes[i].addListener( 'check', this.onCheckboxChecked, this);
         }
     },
 
