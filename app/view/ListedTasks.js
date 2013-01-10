@@ -5,7 +5,7 @@ Ext.define( 'TaskQueue.view.ListedTasks', {
     ],
     xtype: 'listedtasks',
     config: {
-        //store: Ext.create('TaskQueue.store.FakeTasks'),
+        itemCls: 'check_black2',
         itemTpl: '{desc}'
     },
     initialize: function() {

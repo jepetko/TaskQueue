@@ -36,6 +36,7 @@ Ext.define('TaskQueue.view.Main', {
                             type: 'hbox'
                         },
                         title: 'Show',
+                        iconCls: 'home',
                         items: [
                             {
                                 xtype: 'label',
