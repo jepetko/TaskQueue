@@ -23,13 +23,25 @@ Ext.define('TaskQueue.view.layout.Rotating', {
     ////////////////////////////// Methods
 
     setContainer: function(container) {
+        console.warn('set container');
         this.callSuper(arguments);
         this._container = container;
         container.innerElement.addCls(this.layoutClass);
+
+        //var rec = this._container.getRecord();
+        //rec.save = Ext.Function.createInterceptor(rec.save, this.bindRecord, this);
+
         Ext.defer( this._applyLayout, 1000, this);
     },
 
+    bindRecord: function(options, scope) {
+        console.log(options);
+        console.log(scope);
+    },
+
     _animate: function(dim) {
+        console.warn('dim');
+        console.warn( dim );
         var anim = Ext.create(  'Ext.Anim',
                                 {   duration:1000,
                                     autoClear: false,
@@ -58,13 +70,17 @@ Ext.define('TaskQueue.view.layout.Rotating', {
     _applyLayout: function() {
         var record = this._container.getRecord();
         if(!record) return;
+        console.log( "_applyLayout for " + record.get("desc") + " => " + record.get("done"));
 
         var data = record.getData();
+        console.log(data);
         if(!data) return;
         var index = this._container.getDataview().getItemIndex(this._container);
         if( index == -1 ) return;
 
         var dimensions = this.getEmbeddingContainerDimensions();
+        console.log( 'dimensions');
+        console.log(dimensions);
         var totalWidth = dimensions.width;
         var totalHeight= dimensions.height;
 
@@ -79,6 +95,7 @@ Ext.define('TaskQueue.view.layout.Rotating', {
         xCoord += Math.round(totalWidth/2 - dimensions.itemsize/2);
         yCoord = (-1)*yCoord + Math.round(totalHeight/2 - dimensions.itemsize/2);
 
+        console.log("animate");
         this._animate( { top: yCoord, left: xCoord, width: dimensions.itemsize, height: dimensions.itemsize} );
      },
 

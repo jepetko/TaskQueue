@@ -1,6 +1,6 @@
 Ext.define('TaskQueue.view.TaskElement', {
     extend: 'Ext.dataview.component.DataItem',
-    requires: ['Ext.Container', 'Ext.field.Checkbox'],
+    requires: ['Ext.Container', 'Ext.Button'],
     xtype: 'taskelement',
 
     config: {
@@ -11,15 +11,15 @@ Ext.define('TaskQueue.view.TaskElement', {
         taskDiv: {
             cls: 'task-element-div'
         },
-        doneCheckbox: {
-            bottom: '0px'
+        doneButton: {
+            bottom: '0px',
+            text: 'Done!'
         },
         dataMap: {
             getTaskDiv: {
                 setHtml: 'desc'
             },
-            getDoneCheckbox: {
-                setValue: 'done'
+            getDoneButton: {
             },
             getMainContainer: {
                 setTop: 'top',
@@ -39,12 +39,24 @@ Ext.define('TaskQueue.view.TaskElement', {
     registerListeners: function() {
         this.addListener('initialize', this.onInitialize, this);
         this.addListener('updatedata', this.onUpdateData, this);
+        this.addListener('remove', this.onRemoveItem, this);
+        this.addListener('add', this.onAddItem, this);
     },
     onInitialize: function() {
     },
     onUpdateData: function( el, newData, eOpts ) {
         //bug? when doing synchronously it fails: "Cannot read property 'updateRecord' of undefined"
-        Ext.defer( Ext.Function.bind( this.applyMainContainer, this ), 200);
+        //Ext.defer( Ext.Function.bind( this.applyMainContainer, this ), 200);
+        Ext.Function.bind( this.applyMainContainer, this);
+    },
+    onRemoveItem: function(el, item, index, eOpts) {
+        console.log('remove Item');
+        console.log(item);
+    },
+    onAddItem: function(el, item, index, eOpts) {
+        console.log('add Item');
+        console.log(item);
+        console.log( this.getRecord().get("done"));
     },
     applyTaskDiv: function(config) {
         var el = Ext.factory(config, Ext.Panel, this.getTaskDiv());
@@ -52,29 +64,40 @@ Ext.define('TaskQueue.view.TaskElement', {
     },
     updateTaskDiv: function(newDescTaskDiv, oldDescTaskDiv) {
         if (oldDescTaskDiv) {
-            this.remove(oldDescTaskDiv);
+            this.remove(oldDescTaskDiv, true);
         }
         if (newDescTaskDiv) {
             this.add(newDescTaskDiv);
         }
     },
-    applyDoneCheckbox: function(config) {
-        var el = Ext.factory(config, Ext.field.Checkbox, this.getDoneCheckbox());
+    applyDoneButton: function(config) {
+        var el = Ext.factory(config, Ext.Button, this.getDoneButton());
         return el;
     },
-    updateDoneCheckbox: function(newCheckbox, oldCheckbox) {
-        if (oldCheckbox) {
-            this.remove(oldCheckbox);
+    updateDoneButton: function(newButton, oldButton) {
+        if (oldButton) {
+            this.remove(oldButton, true);
         }
-        if (newCheckbox) {
-            this.add(newCheckbox);
+        if (newButton) {
+            this.add(newButton);
         }
     },
     applyMainContainer: function(config) {
         var rec = this.getRecord();
+        if(!rec) return;
+        console.warn('apply main container');
+        console.warn( rec );
         this.setLeft( rec['left'] );
         this.setTop( rec['top'] );
         this.setWidth( rec['width']);
         this.setHeight( rec['height']);
+    },
+    updateMainContainer: function(newContainer, oldContainer) {
+        if (oldContainer) {
+            this.remove(oldContainer, true);
+        }
+        if (newContainer) {
+            this.add(newContainer);
+        }
     }
 });

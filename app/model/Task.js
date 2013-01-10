@@ -3,6 +3,11 @@ Ext.define('TaskQueue.model.Task', {
 
     config: {
         identifier: 'uuid',
+        proxy:
+        {
+            type: 'localstorage',
+            id: 'tasks'
+        },
         fields: [
             { name : 'desc', type : 'string' },
             { name : 'done', type: 'boolean' },
@@ -14,7 +19,7 @@ Ext.define('TaskQueue.model.Task', {
         ],
         validations: [
             { type: 'presence',  field: 'desc' },
-            { type: 'length',    field: 'desc', min: 5, max: 100 }
+            { type: 'length',    field: 'desc', min: 1, max: 100 }
         ]
     }
 });

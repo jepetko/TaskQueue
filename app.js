@@ -3,6 +3,12 @@ Ext.Loader.setPath({
     'Ext': 'touch/src',
     'TaskQueue': 'app'
 });
+Ext.Loader.setConfig(
+    {
+        enabled: true,
+        disableCaching: false
+    }
+);
 //</debug>
 
 Ext.application({

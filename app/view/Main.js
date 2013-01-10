@@ -1,34 +1,65 @@
-Ext.Loader.setConfig({
+/*Ext.Loader.setConfig({
     enabled: true,
     disableCaching: false
-});
+});*/
 
 Ext.define('TaskQueue.view.Main', {
     extend: 'Ext.Panel',
     xtype: 'main',
     requires: [
         'Ext.Panel',
-        'TaskQueue.view.RotatingTasks'
+        'TaskQueue.view.RotatingTasks',
+        'TaskQueue.view.ListedTasks'
     ],
-
     config: {
+        fullscreen: true,
         layout: {
-            type: 'hbox'
+            type: 'fit'
         },
         items: [
             {
-                xtype: 'panel',
-                flex: 1,
+                xtype: 'tabpanel',
+                layout: {
+                    type: 'card',
+                    animation: {
+                        type: 'fade'
+                    }
+                },
+                tabBarPosition: 'bottom',
+                defaults: {
+                    styleHtmlContent: true
+                },
                 items: [
                     {
-                        xtype: 'label',
-                        html: '100'
+                        xtype: 'panel',
+                        layout: {
+                            type: 'hbox'
+                        },
+                        title: 'Show',
+                        items: [
+                            {
+                                xtype: 'label',
+                                html: '100',
+                                flex: 1
+                            },
+                            {
+                                xtype: 'rotatingtasks',
+                                flex: 5
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Edit',
+                        layout: {
+                            type: 'fit'
+                        },
+                        items: [
+                            {
+                                xtype: 'listedtasks'
+                            }
+                        ]
                     }
                 ]
-            },
-            {
-                xtype: 'rotatingtasks',
-                flex: 5
             }
         ]
     }

@@ -7,8 +7,9 @@ Ext.define( 'TaskQueue.view.RotatingTasks', {
     ],
     xtype: 'rotatingtasks',
     config: {
-        store: Ext.create('TaskQueue.store.FakeTasks'),
+        //store: Ext.create('TaskQueue.store.FakeTasks'),
         useComponents: true,
+        maxItemCache: 0,
         defaultType: 'taskelement'
     },
 
